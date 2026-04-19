@@ -1,0 +1,98 @@
+// ============================================================
+//  ANU'S HOMEMADE KITCHEN - PRODUCT DATABASE
+//  Sourced from Anu.xlsx (5 sheets)
+// ============================================================
+const PRODUCTS = [
+  // ======= VEG PICKLES (29 items) =======
+  { id:'v1',  cat:'veg',    name:'Red Chilli Pickle', tel:'పండు మిర్చి పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-red.svg', tags:['spicy','bestseller'] },
+  { id:'v2',  cat:'veg',    name:'Gongura Red Chilli Pickle', tel:'పండు గోంగూర పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-gongura.svg', tags:['spicy','signature'] },
+  { id:'v3',  cat:'veg',    name:'Gongura Pickle', tel:'గోంగూర పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-gongura.svg', tags:['signature'] },
+  { id:'v4',  cat:'veg',    name:'Pulihora Paste', tel:'పులిహోర పేస్ట్ (Tamarind Rice Paste)', weight:'1 Kg', price:500, img:'images/pickle-pulihora.svg', tags:['tangy'] },
+  { id:'v5',  cat:'veg',    name:'Pulihora Gongura Paste', tel:'పులిహోర గోంగూర పేస్ట్', weight:'1 Kg', price:500, img:'images/pickle-pulihora.svg', tags:['tangy'] },
+  { id:'v6',  cat:'veg',    name:'Ginger Pickle', tel:'అల్లం పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-ginger.svg', tags:['digestive'] },
+  { id:'v7',  cat:'veg',    name:'Coriander Leaves Pickle', tel:'కొత్తిమీర పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-green.svg', tags:['fresh'] },
+  { id:'v8',  cat:'veg',    name:'Amaranth Leaves Pickle', tel:'తొట కూర పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-green.svg', tags:['healthy'] },
+  { id:'v9',  cat:'veg',    name:'Mint Leaves Pickle', tel:'పుదీనా పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-green.svg', tags:['fresh'] },
+  { id:'v10', cat:'veg',    name:'Moringa Leaves Pickle', tel:'మూణక్కాయ ఆకు పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-green.svg', tags:['healthy'] },
+  { id:'v11', cat:'veg',    name:'Tomato Pickle', tel:'టమోటా పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-tomato.svg', tags:['tangy'] },
+  { id:'v12', cat:'veg',    name:'Tomato Brinjal Pickle', tel:'టమోటా వంకాయ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-tomato.svg', tags:['tangy'] },
+  { id:'v13', cat:'veg',    name:'Brinjal Pickle', tel:'వంకాయ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-brinjal.svg', tags:['traditional'] },
+  { id:'v14', cat:'veg',    name:'Lemon Pickle', tel:'నిమ్మకాయ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-lemon.svg', tags:['tangy','bestseller'] },
+  { id:'v15', cat:'veg',    name:'Lemon Small Pieces Pickle', tel:'నిమ్మకాయ చిన్న ముక్కల పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-lemon.svg', tags:['tangy'] },
+  { id:'v16', cat:'veg',    name:'Drumstick Pickle', tel:'మూణక్కాయ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-olive.svg', tags:['traditional'] },
+  { id:'v17', cat:'veg',    name:'Bitter Gourd Pickle', tel:'కాకరకాయ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-olive.svg', tags:['healthy'] },
+  { id:'v18', cat:'veg',    name:'Gooseberry Pickle', tel:'ఉసిరికాయ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-gooseberry.svg', tags:['healthy'] },
+  { id:'v19', cat:'veg',    name:'Gooseberry Salted Pickle', tel:'ఉసిరికాయ అవ పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-gooseberry.svg', tags:['healthy'] },
+  { id:'v20', cat:'veg',    name:'Gooseberry Sesame Seed Pickle', tel:'ఉసిరికాయ నువ్వుల పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-gooseberry.svg', tags:['healthy'] },
+  { id:'v21', cat:'veg',    name:'Gooseberry Thokku Pickle', tel:'ఉసిరికాయ తొక్క పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-gooseberry.svg', tags:['healthy'] },
+  { id:'v22', cat:'veg',    name:'Mango Avakaya', tel:'మామిడి అవకాయ', weight:'1 Kg', price:500, img:'images/pickle-mango.svg', tags:['signature','bestseller'] },
+  { id:'v23', cat:'veg',    name:'Mango Slices Pickle (Magaya)', tel:'మాగాయ / మామిడి ముక్కల పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-mango.svg', tags:['signature'] },
+  { id:'v24', cat:'veg',    name:'Mango Small Pieces Spicy Pickle', tel:'మామిడి చిన్న ముక్కల తలింపు పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-mango.svg', tags:['spicy'] },
+  { id:'v25', cat:'veg',    name:'Mango Seed Sesame Pickle', tel:'మామిడి కాయ నువ్వుల పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-mango.svg', tags:['traditional'] },
+  { id:'v26', cat:'veg',    name:'Small Garlic Pickle', tel:'చిన్నీ వెల్లులి పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-garlic.svg', tags:['healthy'] },
+  { id:'v27', cat:'veg',    name:'Cashew Nut Pickle', tel:'జీడిపప్పు పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-cashew.svg', tags:['premium'] },
+  { id:'v28', cat:'veg',    name:'Lentil Pickle', tel:'కంది ముక్కల పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-lentil.svg', tags:['protein'] },
+  { id:'v29', cat:'veg',    name:'Lentil Whole Pickle', tel:'కంది తొక్డు పచ్చడి', weight:'1 Kg', price:500, img:'images/pickle-lentil.svg', tags:['protein'] },
+
+  // ======= NON-VEG PICKLES (12 items) =======
+  { id:'n1',  cat:'nonveg', name:'Chicken Bone Pickle', tel:'చికెన్ బోన్ పచ్చడి', weight:'1 Kg', price:900, img:'images/pickle-chicken.svg', tags:['premium'] },
+  { id:'n2',  cat:'nonveg', name:'Chicken Boneless Pickle', tel:'చికెన్ బొన్లెస్ పచ్చడి', weight:'1 Kg', price:1200, img:'images/pickle-chicken.svg', tags:['premium','bestseller'] },
+  { id:'n3',  cat:'nonveg', name:'Mutton Bone Pickle', tel:'మటన్ బోన్ పచ్చడి', weight:'1 Kg', price:1600, img:'images/pickle-mutton.svg', tags:['premium'] },
+  { id:'n4',  cat:'nonveg', name:'Mutton Boneless Pickle', tel:'మటన్ బొన్లెస్ పచ్చడి', weight:'1 Kg', price:2200, img:'images/pickle-mutton.svg', tags:['premium','luxury'] },
+  { id:'n5',  cat:'nonveg', name:'Gongura Chicken Boneless Pickle', tel:'గోంగూర చికెన్ బొన్లెస్ పచ్చడి', weight:'1 Kg', price:1200, img:'images/pickle-chicken.svg', tags:['signature'] },
+  { id:'n6',  cat:'nonveg', name:'Gongura Mutton Pickle', tel:'గోంగూర మటన్ పచ్చడి', weight:'1 Kg', price:1600, img:'images/pickle-mutton.svg', tags:['signature'] },
+  { id:'n7',  cat:'nonveg', name:'Mutton Keema Pickle', tel:'మటన్ కీమా పచ్చడి', weight:'1 Kg', price:2200, img:'images/pickle-mutton.svg', tags:['luxury'] },
+  { id:'n8',  cat:'nonveg', name:'Prawns Pickle', tel:'ప్రాంస్ పచ్చడి', weight:'1 Kg', price:1400, img:'images/pickle-prawn.svg', tags:['seafood'] },
+  { id:'n9',  cat:'nonveg', name:'Gongura Prawn Pickle', tel:'గోంగూర ప్రాంస్ పచ్చడి', weight:'1 Kg', price:1400, img:'images/pickle-prawn.svg', tags:['seafood','signature'] },
+  { id:'n10', cat:'nonveg', name:'Vanjaram Fish Boneless Pickle', tel:'వాంజారం ఫిష్ బొన్లెస్ పచ్చడి', weight:'1 Kg', price:1800, img:'images/pickle-fish.svg', tags:['seafood','premium'] },
+  { id:'n11', cat:'nonveg', name:'Koraminu Fish Boneless Pickle', tel:'కొరామిను ఫిష్ బొన్లెస్ పచ్చడి', weight:'1 Kg', price:1600, img:'images/pickle-fish.svg', tags:['seafood'] },
+  { id:'n12', cat:'nonveg', name:'Gongura Nethallu Pickle', tel:'గోంగూర నెతల్లు పచ్చడి', weight:'1 Kg', price:1200, img:'images/pickle-fish.svg', tags:['seafood'] },
+
+  // ======= POWDERS (20 items) + 1 sauce =======
+  { id:'p1',  cat:'powder', name:'Moringa Leaves Spice Powder', tel:'మూణక్కాయ ఆకు కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-green.svg', tags:['healthy'] },
+  { id:'p2',  cat:'powder', name:'Curry Leaves Spice Powder', tel:'కరివేపాకు కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-green.svg', tags:['healthy','traditional'] },
+  { id:'p3',  cat:'powder', name:'Bitter Gourd Spice Powder', tel:'కాకరకాయ కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-green.svg', tags:['healthy'] },
+  { id:'p4',  cat:'powder', name:'Lentil Powder', tel:'పప్పుల పొడి', weight:'1 Kg', price:500, img:'images/powder-yellow.svg', tags:['protein'] },
+  { id:'p5',  cat:'powder', name:'Peanut Spice Powder', tel:'పల్లీ కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-red.svg', tags:['protein'] },
+  { id:'p6',  cat:'powder', name:'Coconut Spice Powder', tel:'కొబ్బరి కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-brown.svg', tags:['traditional'] },
+  { id:'p7',  cat:'powder', name:'Lentil Gunpowder', tel:'కంది కారం పొడి / పరుప్పు పొడి', weight:'1 Kg', price:500, img:'images/powder-dark.svg', tags:['bestseller','signature'] },
+  { id:'p8',  cat:'powder', name:'Idli Spice Powder', tel:'ఇడ్లీ కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-red.svg', tags:['breakfast'] },
+  { id:'p9',  cat:'powder', name:'Coriander Spice Powder', tel:'కొత్తిమీర కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-green.svg', tags:['fresh'] },
+  { id:'p10', cat:'powder', name:'Mint Spice Powder', tel:'పుదీనా కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-mint.svg', tags:['fresh'] },
+  { id:'p11', cat:'powder', name:'Small Lentil Spice Powder', tel:'చిన్న పుట్నాల కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-yellow.svg', tags:['protein'] },
+  { id:'p12', cat:'powder', name:'Garlic Spice Powder', tel:'వెల్లులి కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-red.svg', tags:['healthy'] },
+  { id:'p13', cat:'powder', name:'Sweet-Spicy Powder', tel:'మధుపు కారం', weight:'1 Kg', price:500, img:'images/powder-orange.svg', tags:['unique'] },
+  { id:'p14', cat:'powder', name:'Sambar Powder', tel:'సాంబార్ పొడి', weight:'1 Kg', price:500, img:'images/powder-brown.svg', tags:['essential','bestseller'] },
+  { id:'p15', cat:'powder', name:'Sambar Spice (Kura Karam)', tel:'కురా కారం', weight:'1 Kg', price:500, img:'images/powder-red.svg', tags:['essential'] },
+  { id:'p16', cat:'powder', name:'Rasam Powder', tel:'రసం పొడి', weight:'1 Kg', price:500, img:'images/powder-orange.svg', tags:['essential'] },
+  { id:'p17', cat:'powder', name:'Kandi Powder', tel:'కంది పొడి', weight:'1 Kg', price:500, img:'images/powder-yellow.svg', tags:['protein'] },
+  { id:'p18', cat:'powder', name:'Flaxseed Powder', tel:'అవిసగింజల పొడి', weight:'1 Kg', price:500, img:'images/powder-brown.svg', tags:['healthy','superfood'] },
+  { id:'p19', cat:'powder', name:'Sesame Spice Powder', tel:'నువ్వుల కారం పొడి', weight:'1 Kg', price:500, img:'images/powder-brown.svg', tags:['traditional'] },
+  { id:'p20', cat:'powder', name:'Shrimp Shell Spice Powder', tel:'రొయ్యా పోట్టు కారం', weight:'1 Kg', price:600, img:'images/powder-orange.svg', tags:['unique','seafood'] },
+  { id:'p21', cat:'powder', name:'Schezwan Sauce', tel:'షెడ్వాన్ సాస్', weight:'1 Kg', price:800, img:'images/snack-sauce.svg', tags:['fusion'] },
+
+  // ======= SNACKS (11 items) =======
+  { id:'s1',  cat:'snacks', name:'Nalla Nuvvula Laddu', tel:'నల్ల నువ్వుల లట్టు (Black Sesame Laddu)', weight:'1 Kg', price:400, img:'images/snack-dark-laddu.svg', tags:['sweet','traditional'] },
+  { id:'s2',  cat:'snacks', name:'Nethi Ariselu', tel:'నెయ్యి అరిసెలు (Ghee Ariselu)', weight:'1 Kg', price:500, img:'images/snack-ariselu.svg', tags:['sweet','festival'] },
+  { id:'s3',  cat:'snacks', name:'Manubulu', tel:'మనుబులు', weight:'1 Kg', price:300, img:'images/snack-manubulu.svg', tags:['sweet'] },
+  { id:'s4',  cat:'snacks', name:'Pappu Chekkalu', tel:'పప్పు చెక్కలు', weight:'1 Kg', price:300, img:'images/snack-chekkalu.svg', tags:['savory','crispy'] },
+  { id:'s5',  cat:'snacks', name:'Gavvalu', tel:'గవ్వలు', weight:'1 Kg', price:300, img:'images/snack-gavvalu.svg', tags:['sweet','traditional'] },
+  { id:'s6',  cat:'snacks', name:'Kajjikayalu', tel:'కజ్జికాయలు', weight:'1 Kg', price:500, img:'images/snack-kajjikaya.svg', tags:['sweet','festival'] },
+  { id:'s7',  cat:'snacks', name:'Ravva Laddu', tel:'రవ్వ లట్టు (Semolina Laddu)', weight:'1 Kg', price:350, img:'images/snack-laddu.svg', tags:['sweet','bestseller'] },
+  { id:'s8',  cat:'snacks', name:'Poosa Mithai', tel:'పూస మిఠాయి', weight:'1 Kg', price:400, img:'images/snack-mithai.svg', tags:['sweet'] },
+  { id:'s9',  cat:'snacks', name:'Sunnundalu', tel:'సున్నుండలు (Urad Dal Laddu)', weight:'1 Kg', price:600, img:'images/snack-sunnundalu.svg', tags:['sweet','healthy','signature'] },
+  { id:'s10', cat:'snacks', name:'Palli Pakam', tel:'పల్లీ పాకం (Peanut Brittle)', weight:'1 Kg', price:400, img:'images/snack-pakam.svg', tags:['sweet','crunchy'] },
+  { id:'s11', cat:'snacks', name:'Cashew Pakam', tel:'జీడిపప్పు పాకం (Cashew Brittle)', weight:'1 Kg', price:1000, img:'images/snack-cashew.svg', tags:['sweet','premium','luxury'] },
+
+  // ======= OTHERS (1 item) =======
+  { id:'o1',  cat:'others', name:'Organic Coconut Hair Oil', tel:'10 రకాల ఔషధ మూలికలతో స్వచ్ఛమైన కొబ్బరి నూనె', weight:'1 Litre', price:600, img:'images/hair-oil.svg', tags:['organic','natural','bestseller'], desc:'Pure organic coconut oil infused with 10 types of special ayurvedic herbs & ingredients' },
+];
+
+const CATEGORIES = [
+  { id:'all',    label:'All Products', icon:'✦',  tagline:'Full catalogue' },
+  { id:'veg',    label:'Veg Pickles',  icon:'🌶', tagline:'Andhra classics' },
+  { id:'nonveg', label:'Non-Veg Pickles', icon:'🍖', tagline:'Premium picks' },
+  { id:'powder', label:'Powders',      icon:'🥣', tagline:'Karam & podis' },
+  { id:'snacks', label:'Snacks & Sweets', icon:'🍬', tagline:'Festival treats' },
+  { id:'others', label:'Wellness',     icon:'🌿', tagline:'Hair & body' },
+];
