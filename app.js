@@ -14,7 +14,7 @@ const state = {
 const CONFIG = {
   whatsappNumber: '919999999999', // country code + number, no + or spaces
   emailTo: 'orders@anuskitchen.com',
-  shopName: "Anu's Homemade Kitchen",
+  shopName: "KK Pickles",
 };
 
 // Load from localStorage (session persistence within browser)
@@ -48,6 +48,15 @@ function renderCategories() {
   const counts = { all: PRODUCTS.length };
   PRODUCTS.forEach(p => { counts[p.cat] = (counts[p.cat] || 0) + 1; });
 
+  const catNav = document.querySelector('.cat-nav');
+  // If only one real category, hide the nav (cleaner for focused shops)
+  const realCats = CATEGORIES.filter(c => c.id !== 'all');
+  if (realCats.length <= 1) {
+    catNav.style.display = 'none';
+    return;
+  }
+  catNav.style.display = '';
+
   const el = $('#catNav');
   el.innerHTML = CATEGORIES.map(c => `
     <button class="cat-btn ${c.id === state.activeCat ? 'active' : ''}" data-cat="${c.id}">
@@ -76,6 +85,7 @@ function filtered() {
     if (!q) return true;
     return (
       p.name.toLowerCase().includes(q) ||
+      (p.hi && p.hi.toLowerCase().includes(q)) ||
       (p.tel && p.tel.toLowerCase().includes(q)) ||
       (p.tags && p.tags.some(t => t.toLowerCase().includes(q)))
     );
@@ -105,6 +115,7 @@ function productCard(p) {
       <div class="product-body">
         <div class="product-cat">${catLabel(p.cat === 'veg' ? 'veg' : p.cat)}</div>
         <h3 class="product-name">${p.name}</h3>
+        ${p.hi ? `<div class="product-hi">${p.hi}</div>` : ''}
         <div class="product-tel">${p.tel || ''}</div>
         <div class="product-foot">
           <div class="price">
@@ -130,9 +141,19 @@ function renderGrid() {
   const list = filtered();
   const head = $('#catalogHead');
   const cat = CATEGORIES.find(c => c.id === state.activeCat);
+  const realCats = CATEGORIES.filter(c => c.id !== 'all');
+  const isSingleCat = realCats.length <= 1;
+
+  const heading = isSingleCat && state.activeCat === 'all'
+    ? 'The <em>Collection</em>'
+    : `${cat ? cat.label : 'All Products'} <em>·</em> <em>${list.length}</em>`;
+  const meta = isSingleCat
+    ? `${list.length} handcrafted ${list.length === 1 ? 'pickle' : 'pickles'}${state.search ? ` matching "${state.search}"` : ''}`
+    : (cat?.tagline || 'Handcrafted, ready to ship');
+
   head.innerHTML = `
-    <h2>${cat ? cat.label : 'All Products'} <em>·</em> <em>${list.length}</em></h2>
-    <div class="catalog-meta">${cat?.tagline || 'Handcrafted, ready to ship'}</div>
+    <h2>${heading}</h2>
+    <div class="catalog-meta">${meta}</div>
   `;
 
   const grid = $('#grid');

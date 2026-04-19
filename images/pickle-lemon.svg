@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <defs>
+    <linearGradient id="c" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5c518"/>
+      <stop offset="50%" stop-color="#d4a017"/>
+      <stop offset="100%" stop-color="#8a6808"/>
+    </linearGradient>
+    <linearGradient id="lid" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3e2723"/>
+      <stop offset="100%" stop-color="#1b0f0a"/>
+    </linearGradient>
+    <radialGradient id="sh" cx="30%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="300" height="300" fill="#fdf6e8"/>
+  <circle cx="150" cy="150" r="120" fill="#fce8c8" opacity="0.5"/>
+  <ellipse cx="150" cy="265" rx="65" ry="7" fill="#5a3010" opacity="0.25"/>
+
+  <!-- jar -->
+  <path d="M 95 105 Q 95 88 103 84 L 197 84 Q 205 88 205 105 L 203 250 Q 203 262 192 262 L 108 262 Q 97 262 97 250 Z"
+        fill="url(#c)" stroke="#5b1010" stroke-width="1.5"/>
+  <!-- shine -->
+  <path d="M 102 110 Q 102 95 108 93 L 118 93 Q 114 105 113 118 L 110 245 Q 110 253 105 253 Q 101 250 101 240 Z"
+        fill="url(#sh)"/>
+  <!-- lid -->
+  <rect x="88" y="70" width="124" height="22" rx="3" fill="url(#lid)"/>
+  <rect x="88" y="70" width="124" height="5" rx="2" fill="#4a2f22"/>
+  <rect x="88" y="88" width="124" height="2" fill="#0a0604"/>
+
+  <!-- label -->
+  <rect x="115" y="145" width="70" height="62" rx="3" fill="#fdf6e8" stroke="#d4a017" stroke-width="1.2"/>
+  <rect x="115" y="145" width="70" height="15" fill="#d4a017"/>
+  <text x="150" y="156" text-anchor="middle" font-family="Georgia, serif" font-size="9" font-weight="bold" fill="#fdf6e8" letter-spacing="1">ANU'S</text>
+  <text x="150" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="8" fill="#5b1010">Homemade</text>
+  <text x="150" y="193" text-anchor="middle" font-family="Georgia, serif" font-size="8" font-weight="bold" fill="#5b1010">Lemon</text>
+  <line x1="125" y1="199" x2="175" y2="199" stroke="#d4a017" stroke-width="0.5"/>
+</svg>
