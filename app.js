@@ -12,7 +12,7 @@ const state = {
 
 // WhatsApp business number — replace with real one
 const CONFIG = {
-  whatsappNumber: '919999999999', // country code + number, no + or spaces
+  whatsappNumber: '919515669906', // country code + number, no + or spaces
   emailTo: 'orders@anuskitchen.com',
   shopName: "KK Pickles",
 };
